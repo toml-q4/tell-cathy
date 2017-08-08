@@ -7,9 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
 import './rxjs-extensions';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { NoteDetailsComponent } from './note-details/note-details.component';
-
 
 @NgModule({
   declarations: [
