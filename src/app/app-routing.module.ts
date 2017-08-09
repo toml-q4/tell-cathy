@@ -3,13 +3,15 @@ import { NoteComponent } from './note/note.component';
 import { NoteDetailsComponent } from './note-details/note-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TemperatureComponent } from "app/temperature/temperature.component";
 
 const defaultRoute = '/note';
 const appRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: defaultRoute },
     { path: 'note', component: NoteComponent, children: [
         { path: '', pathMatch: 'full', redirectTo: defaultRoute },
-        { path: ':id', component: NoteDetailsComponent }
+        { path: ':id', component: NoteDetailsComponent },
+        { path: ':id/temperature', component: TemperatureComponent }
     ] },
     { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];
@@ -27,5 +29,6 @@ export class AppRoutingModule { }
 export const routableComponents = [
     NoteComponent,
     NoteDetailsComponent,
+    TemperatureComponent,
     PageNotFoundComponent
 ];
