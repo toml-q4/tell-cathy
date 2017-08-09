@@ -1,14 +1,11 @@
-<div class="row">
-    <div class="col">Girl</div>
-    <div class="col">17m</div>
-    <div class="col">15lbs</div>
-    <div class="col">
-        <button type="button" class="btn btn-primary btn-sm" (click)="save()">Save</button>
-    </div>    
-</div>
+<p>
+    <a href="#" (click)="getRachelSense()" >Get RachelSense</a>
+    <button type="button" class="btn btn-primary btn-sm" (click)="save()">Save</button>
+</p>
+
 <p>Start recording note for:</p>
 <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> Temperature</button>
 <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Symptom</button>
-<button type="button" class="btn btn-sm btn-primary"><i class="fa fa-medkit" aria-hidden="true"></i> Medicine</button>
+<button type="button" class="btn btn-sm btn-primary"><i class="fa fa-medkit" aria-hidden="true"></i> <span class="hidden-xs-down">Medicine</span></button>
 
 <router-outlet></router-outlet>
