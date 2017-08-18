@@ -4,11 +4,13 @@ import { NoteDetailsComponent } from './note-details/note-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from "app/home/home.component";
+import { AboutComponent } from "app/about/about.component";
 
 const defaultRoute = '/home';
 const appRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
     { path: 'home', component: HomeComponent },
+    { path: 'about', component: AboutComponent },
     {
         path: 'note', component: NoteComponent, children: [{ path: ':id', component: NoteDetailsComponent }]
     },
@@ -27,6 +29,7 @@ export class AppRoutingModule { }
 
 export const routableComponents = [
     HomeComponent,
+    AboutComponent,
     NoteComponent,
     NoteDetailsComponent,
     PageNotFoundComponent
