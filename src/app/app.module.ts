@@ -7,11 +7,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
 import './rxjs-extensions';
 import { AppComponent } from './app.component';
+import { TemperatureComponent } from './temperature/temperature.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routableComponents
+    routableComponents,
+    TemperatureComponent
   ],
   imports: [
     NgbModule.forRoot(),

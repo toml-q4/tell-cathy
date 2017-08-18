@@ -14,4 +14,8 @@ export class NoteComponent implements OnInit {
   save() {
     alert('save clicked');
   }
+
+  getRachelSense() {
+    alert('getting rachel sense');
+  }
 }
