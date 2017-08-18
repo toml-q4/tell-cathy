@@ -13,17 +13,19 @@ export class NoteService {
       requestURL += '?withDetails=true';
     }
     return this.http.get(requestURL)
-                    .map((response: Response) => <NoteDetails>response.json())
-                    .catch(this.handleError);
+      .map((response: Response) => <NoteDetails>response.json())
+      .catch(this.handleError);
   }
 
   create() {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this.http.post(`${this.backendDomain}/api/notes`, { takenDate: new Date() }, options);
+    return this.http.post(`${this.backendDomain}/api/notes`, { takenDate: new Date() }, options)
+      .map((response: Response) => <NoteDetails>response.json())
+      .catch(this.handleError);
   }
 
-  private handleError(error: Response) {    
+  private handleError(error: Response) {
     let msg = `Unknown error.`;
     if (error.status === 404) {
       msg = 'Note is not found.';
