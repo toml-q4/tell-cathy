@@ -8,12 +8,14 @@ import { AppRoutingModule, routableComponents } from './app-routing.module';
 import './rxjs-extensions';
 import { AppComponent } from './app.component';
 import { TemperatureComponent } from './temperature/temperature.component';
+import { AppNavComponent } from './app-nav/app-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routableComponents,
-    TemperatureComponent
+    TemperatureComponent,
+    AppNavComponent
   ],
   imports: [
     NgbModule.forRoot(),

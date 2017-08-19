@@ -1,22 +1,6 @@
-<nav class="navbar navbar-light fixed-top">
-  <span class="h1" class="navbar-brand mb-0">Rachel<strong>THAT</strong></span>
-
-  <div class="separator"></div>
-
-  <div class="actions">
-    <a [routerLink]="['/home']" role="button" class="btn btn-link" title="Home">
-      Home</a>
-    <a [routerLink]="['/about']" role="button" class="btn btn-iink" title="About">
-      About</a>
-
-
-    <!-- 
-      <a [routerLink]="['/temperature']" role="button" class="btn btn-sm btn-primary" title="Body Temperature"><i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i></a>
-      <a [routerLink]="['/medicine']" role="button" class="btn btn-sm btn-primary" title="Medicine"><i class="fa fa-medkit" aria-hidden="true"></i></a>
-      <a [routerLink]="['/doctor']" role="button" class="btn btn-sm btn-primary" title="Doctor"><i class="fa fa-user-md" aria-hidden="true"></i></a>
-      <a [routerLink]="['/timeline']" role="button" class="btn btn-sm btn-primary" title="Timeline"><i class="fa fa-bar-chart" aria-hidden="true"></i></a> -->
+<div class="container-fluid">
+  <app-nav></app-nav>
+  <div class="app-main">
+    <router-outlet></router-outlet>
   </div>
-</nav>
-<div class="main-body container-fluid">
-  <router-outlet></router-outlet>
 </div>
