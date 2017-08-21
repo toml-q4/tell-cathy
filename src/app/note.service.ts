@@ -4,23 +4,22 @@ import { Observable } from 'rxjs/Observable';
 import { NoteDetails } from 'app/note-details/models/note-details';
 @Injectable()
 export class NoteService {
+  note: NoteDetails;
   backendDomain = 'http://localhost:59609';
   constructor(private http: Http) { }
 
-  getById(id: number, withDetails: boolean) {
-    let requestURL = `${this.backendDomain}/api/notes/${id}`;
-    if (withDetails) {
-      requestURL += '?withDetails=true';
-    }
+  getById(id: number) {
+    let requestURL = `${this.backendDomain}/api/notes/${id}?withDetails=true`;
+   
     return this.http.get(requestURL)
       .map((response: Response) => <NoteDetails>response.json())
       .catch(this.handleError);
   }
 
-  create() {
+  create(email: string) {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this.http.post(`${this.backendDomain}/api/notes`, { takenDate: new Date() }, options)
+    return this.http.post(`${this.backendDomain}/api/notes`, { email: email }, options)
       .map((response: Response) => <NoteDetails>response.json())
       .catch(this.handleError);
   }
@@ -32,5 +31,19 @@ export class NoteService {
     }
 
     return Observable.throw(msg);
+  }
+
+  saveNote(note: NoteDetails) {
+    this.note = note;
+  }
+  getNote() {
+    return this.note;
+  }
+
+  getNoteId():string {
+    if (this.note) {
+      return this.note.id;
+    }
+    return null;
   }
 }

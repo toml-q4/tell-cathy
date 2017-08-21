@@ -1,3 +1,6 @@
+import { NoteDoctorComponent } from './note-doctor/note-doctor.component';
+import { NoteMedicineComponent } from './note-medicine/note-medicine.component';
+import { NoteTemperatureComponent } from './note-temperature/note-temperature.component';
 import { NgModule } from '@angular/core';
 import { NoteComponent } from './note/note.component';
 import { NoteDetailsComponent } from './note-details/note-details.component';
@@ -12,7 +15,12 @@ const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },
     {
-        path: 'note', component: NoteComponent, children: [{ path: ':id', component: NoteDetailsComponent }]
+        path: 'note', component: NoteComponent, children: [
+            { path: ':id', component: NoteDetailsComponent },
+            { path: ':id/temperature', component: NoteTemperatureComponent },
+            { path: ':id/medicine', component: NoteMedicineComponent },
+            { path: ':id/doctor', component: NoteDoctorComponent }
+        ]
     },
     { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];
@@ -30,7 +38,10 @@ export class AppRoutingModule { }
 export const routableComponents = [
     HomeComponent,
     AboutComponent,
-    NoteComponent,
+    NoteComponent,    
     NoteDetailsComponent,
+    NoteTemperatureComponent,
+    NoteMedicineComponent,
+    NoteDoctorComponent,
     PageNotFoundComponent
 ];

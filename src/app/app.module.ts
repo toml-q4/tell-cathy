@@ -1,3 +1,4 @@
+import { EntryService } from './entry.service';
 import { NoteService } from './note.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -7,15 +8,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
 import './rxjs-extensions';
 import { AppComponent } from './app.component';
-import { TemperatureComponent } from './temperature/temperature.component';
 import { AppNavComponent } from './app-nav/app-nav.component';
+import { NoteNavComponent } from './note-nav/note-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routableComponents,
-    TemperatureComponent,
-    AppNavComponent
+    AppNavComponent,
+    NoteNavComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -24,7 +25,7 @@ import { AppNavComponent } from './app-nav/app-nav.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [NoteService],
+  providers: [NoteService, EntryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

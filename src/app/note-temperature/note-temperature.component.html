@@ -1,0 +1,42 @@
+<h1>Temperature</h1>
+<form (ngSubmit)="create()" #temperatureForm="ngForm">
+  <div class="form-group">
+    <label for="takenDate">Taken Date</label>
+    <input type="text" class="form-control" id="takendate"
+    [(ngModel)]="model.takenDate" name="takenDate" #takenDate="ngModel"
+    required>
+    <div [hidden]="takenDate.valid || takenDate.pristine" class="small text-danger">
+        <strong>Taken Date</strong> is required
+      </div>
+  </div>
+
+  <div class="form-group">    
+    <input type="number" class="form-control" id="amount" placeholder="How many degrees? (example: 37.8)"
+    [(ngModel)]="model.amount" name="amount" #amount="ngModel"       
+    required>
+
+    <div [hidden]="amount.valid || amount.pristine" class="small text-danger">
+      <strong>How many degrees?</strong> is required
+    </div>    
+  </div>
+
+  <fieldset class="form-group">    
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="unit" value="celsius" [(ngModel)]="model.unit">
+        Celsius
+      </label>
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="unit" value="fahrenheit" [(ngModel)]="model.unit">
+        Fahrenheit 
+      </label>
+    </div>
+  </fieldset>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!temperatureForm.form.valid">Submit</button>
+</form>
+
+<pre>{{ model | json }}</pre>

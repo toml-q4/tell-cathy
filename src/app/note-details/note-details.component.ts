@@ -1,7 +1,7 @@
 import { NoteService } from './../note.service';
 import { Component, OnInit } from '@angular/core';
 import { NoteDetails } from "app/note-details/models/note-details";
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-note-details',
   templateUrl: './note-details.component.html',
@@ -9,12 +9,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NoteDetailsComponent implements OnInit {
   noteId: number;
-  noteDetails: NoteDetails;
-  constructor(private route: ActivatedRoute, private noteService: NoteService) {}
+  noteDetails: NoteDetails;  
+  constructor(private activatedRoute: ActivatedRoute, private noteService: NoteService) {}
 
   ngOnInit() {
     if (!this.noteDetails) {
-      this.route.params
+      this.activatedRoute.params
         .map(params => params['id'])
         .do(noteId => this.noteId = noteId)
         .subscribe(noteId => this.getNoteById());
@@ -22,8 +22,9 @@ export class NoteDetailsComponent implements OnInit {
   }
 
   private getNoteById() {
-    this.noteService.getById(this.noteId, false).subscribe(noteDetails => {
+    this.noteService.getById(this.noteId).subscribe(noteDetails => {
         this.noteDetails = noteDetails;
+        this.noteService.saveNote(noteDetails);
       },
       errorMessage => {
         alert(errorMessage);

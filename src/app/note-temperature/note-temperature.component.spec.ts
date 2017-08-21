@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TemperatureComponent } from './temperature.component';
+import { NoteTemperatureComponent } from './note-temperature.component';
 
-describe('TemperatureComponent', () => {
-  let component: TemperatureComponent;
-  let fixture: ComponentFixture<TemperatureComponent>;
+describe('NoteTemperatureComponent', () => {
+  let component: NoteTemperatureComponent;
+  let fixture: ComponentFixture<NoteTemperatureComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TemperatureComponent ]
+      declarations: [ NoteTemperatureComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TemperatureComponent);
+    fixture = TestBed.createComponent(NoteTemperatureComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

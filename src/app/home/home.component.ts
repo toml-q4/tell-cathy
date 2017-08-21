@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  noteDetails: NoteDetails;
+  email: string;
   constructor(private noteService: NoteService,
     private router: Router) { }
 
@@ -17,10 +17,9 @@ export class HomeComponent implements OnInit {
   }
 
   create() {
-    this.noteService.create()
-      .subscribe(response => {
-        this.noteDetails = response;
-        this.router.navigateByUrl(`/note/${this.noteDetails.id}`);
+    this.noteService.create(this.email)
+      .subscribe(noteDetails => {
+        this.router.navigate(['/note', noteDetails.id]);
       });
   }
 }
