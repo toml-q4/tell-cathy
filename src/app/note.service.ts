@@ -32,18 +32,4 @@ export class NoteService {
 
     return Observable.throw(msg);
   }
-
-  saveNote(note: NoteDetails) {
-    this.note = note;
-  }
-  getNote() {
-    return this.note;
-  }
-
-  getNoteId():string {
-    if (this.note) {
-      return this.note.id;
-    }
-    return null;
-  }
 }

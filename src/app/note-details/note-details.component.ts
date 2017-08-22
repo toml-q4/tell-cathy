@@ -15,7 +15,7 @@ export class NoteDetailsComponent implements OnInit {
   ngOnInit() {
     if (!this.noteDetails) {
       this.activatedRoute.params
-        .map(params => params['id'])
+        .map(params => params['noteId'])
         .do(noteId => this.noteId = noteId)
         .subscribe(noteId => this.getNoteById());
     }
@@ -24,7 +24,6 @@ export class NoteDetailsComponent implements OnInit {
   private getNoteById() {
     this.noteService.getById(this.noteId).subscribe(noteDetails => {
         this.noteDetails = noteDetails;
-        this.noteService.saveNote(noteDetails);
       },
       errorMessage => {
         alert(errorMessage);

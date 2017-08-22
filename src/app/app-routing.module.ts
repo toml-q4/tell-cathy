@@ -16,10 +16,10 @@ const appRoutes: Routes = [
     { path: 'about', component: AboutComponent },
     {
         path: 'note', component: NoteComponent, children: [
-            { path: ':id', component: NoteDetailsComponent },
-            { path: ':id/temperature', component: NoteTemperatureComponent },
-            { path: ':id/medicine', component: NoteMedicineComponent },
-            { path: ':id/doctor', component: NoteDoctorComponent }
+            { path: ':noteId', component: NoteDetailsComponent },
+            { path: ':noteId/temperature', component: NoteTemperatureComponent },
+            { path: ':noteId/medicine', component: NoteMedicineComponent },
+            { path: ':noteId/doctor', component: NoteDoctorComponent }
         ]
     },
     { path: '**', pathMatch: 'full', component: PageNotFoundComponent }

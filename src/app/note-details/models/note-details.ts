@@ -1,6 +1,7 @@
+import { NoteEntry } from "app/note-details/models/note-entry";
+
 export class NoteDetails {
-    constructor(
-        public id: string,
-        public email: string
-    ) { }
+    public id: string;
+    public email: string;
+    public entries: Array<NoteEntry>;
 }
