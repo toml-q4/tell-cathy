@@ -9,11 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NoteDetailsComponent implements OnInit {
   noteId: number;
-  noteDetails: NoteDetails;  
-  constructor(private activatedRoute: ActivatedRoute, private noteService: NoteService) {}
+  noteDetails = new NoteDetails();
+  constructor(private activatedRoute: ActivatedRoute, private noteService: NoteService) { }
 
   ngOnInit() {
-    if (!this.noteDetails) {
+    if (!this.noteDetails.id) {
       this.activatedRoute.params
         .map(params => params['noteId'])
         .do(noteId => this.noteId = noteId)
@@ -23,8 +23,8 @@ export class NoteDetailsComponent implements OnInit {
 
   private getNoteById() {
     this.noteService.getById(this.noteId).subscribe(noteDetails => {
-        this.noteDetails = noteDetails;
-      },
+      this.noteDetails = noteDetails;
+    },
       errorMessage => {
         alert(errorMessage);
       })
