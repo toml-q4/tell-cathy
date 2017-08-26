@@ -1,4 +1,4 @@
-<h1>Temperature</h1>
+<h3>Temperature</h3>
 <form (ngSubmit)="create()" #temperatureForm="ngForm">
   <div class="form-group">
     <label for="takenDate">Taken Date</label>
@@ -37,6 +37,5 @@
   </fieldset>
 
   <button type="submit" class="btn btn-primary" [disabled]="!temperatureForm.form.valid">Submit</button>
+  <button type="button" class="btn btn-light" [routerLink]="['/note', noteId]">Cancel</button>
 </form>
-
-<pre>{{ model | json }}</pre>

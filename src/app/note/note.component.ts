@@ -5,17 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './note.component.html',
   styleUrls: ['./note.component.css']
 })
-export class NoteComponent implements OnInit {  
+export class NoteComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  save() {
-    alert('save clicked');
-  }
-
-  getRachelSense() {
-    alert('getting rachel sense');
   }
 }

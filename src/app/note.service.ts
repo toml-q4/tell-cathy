@@ -8,11 +8,17 @@ export class NoteService {
   backendDomain = 'http://localhost:59609';
   constructor(private http: Http) { }
 
+  getCurrent() {
+    return this.note;
+  }
+
   getById(id: number) {
-    let requestURL = `${this.backendDomain}/api/notes/${id}?withDetails=true`;
-   
+    const requestURL = `${this.backendDomain}/api/notes/${id}?withDetails=true`;
     return this.http.get(requestURL)
       .map((response: Response) => <NoteDetails>response.json())
+      .do((data) => {
+        this.note = data;
+      })
       .catch(this.handleError);
   }
 

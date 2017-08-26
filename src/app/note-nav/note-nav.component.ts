@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'note-nav',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./note-nav.component.css']
 })
 export class NoteNavComponent implements OnInit {
-
-  constructor() { }
+  noteId: string;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
   }

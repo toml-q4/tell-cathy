@@ -1,4 +1,4 @@
-import { NoteEntry } from "app/note-details/models/note-entry";
+import { NoteEntry } from 'app/note-details/models/note-entry';
 
 export class NoteDetails {
     public id: string;

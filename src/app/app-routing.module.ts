@@ -16,8 +16,8 @@ const appRoutes: Routes = [
     { path: 'about', component: AboutComponent },
     {
         path: 'note', component: NoteComponent, children: [
-            { path: ':noteId', component: NoteDetailsComponent },
-            { path: ':noteId/temperature', component: NoteTemperatureComponent },
+            { path: 'temperature', component: NoteTemperatureComponent },
+            { path: ':noteId', component: NoteDetailsComponent },            
             { path: ':noteId/medicine', component: NoteMedicineComponent },
             { path: ':noteId/doctor', component: NoteDoctorComponent }
         ]
