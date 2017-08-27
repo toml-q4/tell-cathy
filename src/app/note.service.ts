@@ -1,25 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import { NoteDetails } from 'app/note-details/models/note-details';
 @Injectable()
 export class NoteService {
   note: NoteDetails;
-  backendDomain = 'http://localhost:59609';
+  noteSource: Subject<NoteDetails> = new Subject<NoteDetails>();
+  note$ = this.noteSource.asObservable();
+  private backendDomain = 'http://localhost:59609';
   constructor(private http: Http) { }
 
-  getCurrent() {
-    return this.note;
-  }
-
-  getById(id: number) {
+  getById(id: string) {
     const requestURL = `${this.backendDomain}/api/notes/${id}?withDetails=true`;
     return this.http.get(requestURL)
       .map((response: Response) => <NoteDetails>response.json())
       .do((data) => {
+        this.noteSource.next(data);
         this.note = data;
       })
       .catch(this.handleError);
+  }
+
+  getCurrent() {
+    return this.note;
   }
 
   create(email: string) {

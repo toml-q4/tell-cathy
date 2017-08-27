@@ -10,7 +10,7 @@ import { EntryType } from 'app/note-details/models/note-entry';
   styleUrls: ['./note-details.component.css']
 })
 export class NoteDetailsComponent implements OnInit {
-  noteId: number;
+  noteId: string;
   noteDetails = new NoteDetails();
   constructor(private activatedRoute: ActivatedRoute, private noteService: NoteService) { }
 

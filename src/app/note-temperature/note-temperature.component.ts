@@ -15,17 +15,26 @@ export class NoteTemperatureComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private noteService: NoteService,
-              private entryService: EntryService) { }
+              private entryService: EntryService) {
+              }
 
 
   ngOnInit() {
     this.model.unit = 'celsius'; // default;
-    this.noteId = this.noteService.getCurrent().id;
+    this.model.amount = 37.0;
+    this.noteId = this.noteService.note.id;
   }
   create() {
     this.entryService.createTemperature(this.noteId, this.model.takenDate, this.model.amount, this.model.unit === 'celsius')
     .subscribe(response => {
       this.router.navigateByUrl(`/note/${this.noteId}`);
     });
+  }
+
+  decreaseAmount() {
+    this.model.amount -= 0.1;
+  }
+  increaseAmount() {
+    this.model.amount += 0.1;
   }
 }

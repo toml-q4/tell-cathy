@@ -1,4 +1,7 @@
-<a [routerLink]="['/note/temperature']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Body Temperature"><i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i></a>
+<a [routerLink]="['/note/temperature']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Body Temperature">
+    <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
+    <i class="fa fa-long-arrow-up" [ngClass]="{'fa-long-arrow-up': temperatureUp, 'fa-long-arrow-down': temperatureDown, 'fa-long-arrow-right': temperatureSame }" aria-hidden="true"></i>
+</a>
 <a [routerLink]="['/medicine']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Medicine"><i class="fa fa-medkit" aria-hidden="true"></i></a>
 <a [routerLink]="['/doctor']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Doctor"><i class="fa fa-user-md" aria-hidden="true"></i></a>
 <a [routerLink]="['/timeline']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Timeline"><i class="fa fa-bar-chart" aria-hidden="true"></i></a> 
