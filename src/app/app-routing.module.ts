@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from "app/home/home.component";
 import { AboutComponent } from "app/about/about.component";
+import { OneGateGuard } from "app/one-gate.guard";
 
 const defaultRoute = '/home';
 const appRoutes: Routes = [
@@ -16,10 +17,8 @@ const appRoutes: Routes = [
     { path: 'about', component: AboutComponent },
     {
         path: 'note', component: NoteComponent, children: [
-            { path: 'temperature', component: NoteTemperatureComponent },
-            { path: ':noteId', component: NoteDetailsComponent },            
-            { path: ':noteId/medicine', component: NoteMedicineComponent },
-            { path: ':noteId/doctor', component: NoteDoctorComponent }
+            { path: 'temperature', canActivate: [OneGateGuard], component: NoteTemperatureComponent },
+            { path: ':noteId', component: NoteDetailsComponent }
         ]
     },
     { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
@@ -38,7 +37,7 @@ export class AppRoutingModule { }
 export const routableComponents = [
     HomeComponent,
     AboutComponent,
-    NoteComponent,    
+    NoteComponent,
     NoteDetailsComponent,
     NoteTemperatureComponent,
     NoteMedicineComponent,

@@ -10,6 +10,7 @@ import './rxjs-extensions';
 import { AppComponent } from './app.component';
 import { AppNavComponent } from './app-nav/app-nav.component';
 import { NoteNavComponent } from './note-nav/note-nav.component';
+import { OneGateGuard } from "app/one-gate.guard";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { NoteNavComponent } from './note-nav/note-nav.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [NoteService, EntryService],
+  providers: [NoteService, EntryService, OneGateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
