@@ -1,6 +1,5 @@
-export enum EntryType {
-    Temperature = 10
-}
+import { EntryType } from "app/shared/enum.entry-type";
+
 export class NoteEntry {
     public name: string;
     public description: string;

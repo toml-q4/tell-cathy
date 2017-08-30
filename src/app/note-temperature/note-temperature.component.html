@@ -1,42 +1,28 @@
-<h3>Temperature</h3>
+<div class="alert alert-primary" role="alert">
+  Last record: {{lastRecord.name}} <span [innerHTML]="lastRecord.entryType | noteUnit"></span>
+</div>
+
 <form (ngSubmit)="create()" #temperatureForm="ngForm">
   <div class="form-group">
     <label for="takenDate">Taken Date</label>
-    <input type="text" class="form-control" id="takendate"
-    [(ngModel)]="model.takenDate" name="takenDate" #takenDate="ngModel"
-    required>
+    <input type="text" class="form-control" id="takendate" [(ngModel)]="model.takenDate" name="takenDate" #takenDate="ngModel"
+      required>
     <div [hidden]="takenDate.valid || takenDate.pristine" class="small text-danger">
-        <strong>Taken Date</strong> is required
-      </div>
+      <strong>Taken Date</strong> is required
+    </div>
   </div>
 
   <div class="form-group">
-      <span>{{model.amount | number:'2.2-2'}}</span>
-      <div class="input-group">
-        <span class="input-group-btn">
+    <span>{{model.amount | number:'2.1-1'}}</span> <span [innerHTML]="model.entryType | noteUnit"></span>
+    <div class="input-group">
+      <span class="input-group-btn">
           <button class="btn btn-secondary" type="button" (click)="decreaseAmount()"><i class="fa fa-minus" aria-hidden="true"></i></button>
         </span>
-        <span class="input-group-btn">
+      <span class="input-group-btn">
           <button class="btn btn-secondary" type="button" (click)="increaseAmount()"><i class="fa fa-plus" aria-hidden="true"></i></button>
         </span>
-      </div>
+    </div>
   </div>
-
-  <fieldset class="form-group">    
-    <div class="form-check">
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="unit" value="celsius" [(ngModel)]="model.unit">
-        Celsius
-      </label>
-    </div>
-
-    <div class="form-check">
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="unit" value="fahrenheit" [(ngModel)]="model.unit">
-        Fahrenheit 
-      </label>
-    </div>
-  </fieldset>
 
   <button type="submit" class="btn btn-primary" [disabled]="!temperatureForm.form.valid">Submit</button>
   <button type="button" class="btn btn-light" [routerLink]="['/note', noteId]">Cancel</button>

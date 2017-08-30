@@ -3,6 +3,8 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { NoteDetails } from 'app/note-details/models/note-details';
+import { EntryType } from "app/shared/enum.entry-type";
+import { NoteEntry } from "app/note-details/models/note-entry";
 @Injectable()
 export class NoteService {
   note: NoteDetails;
@@ -10,6 +12,16 @@ export class NoteService {
   note$ = this.noteSource.asObservable();
   private backendDomain = 'http://localhost:59609';
   constructor(private http: Http) { }
+
+  getLastEntry(type: EntryType) {
+    let result = new NoteEntry();
+    if (this.note) {
+      result = this.note.entries.find(function (element) {
+        return element.entryType === EntryType.Temperature;
+      });
+    }
+    return result;
+  }
 
   getById(id: string) {
     const requestURL = `${this.backendDomain}/api/notes/${id}?withDetails=true`;

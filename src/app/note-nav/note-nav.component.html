@@ -1,7 +1,6 @@
 <a [routerLink]="['/note/temperature']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Body Temperature">
-    <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
-    <i class="fa fa-long-arrow-up" [ngClass]="{'fa-long-arrow-up': temperatureUp, 'fa-long-arrow-down': temperatureDown, 'fa-long-arrow-right': temperatureSame }" aria-hidden="true"></i>
+    <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i><span class="d-none d-md-inline-block">Temperature</span>    
 </a>
-<a [routerLink]="['/medicine']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Medicine"><i class="fa fa-medkit" aria-hidden="true"></i></a>
-<a [routerLink]="['/doctor']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Doctor"><i class="fa fa-user-md" aria-hidden="true"></i></a>
-<a [routerLink]="['/timeline']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Timeline"><i class="fa fa-bar-chart" aria-hidden="true"></i></a> 
+<a [routerLink]="['/note/symptom']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Symptom"><i class="fa fa-edit" aria-hidden="true"></i><span class="d-none d-md-inline-block">Symptom</span></a>
+<a [routerLink]="['/note/medicine']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Medicine"><i class="fa fa-medkit" aria-hidden="true"></i><span class="d-none d-md-inline-block">Medicine</span></a>
+<a [routerLink]="['/note/doctor']" routerLinkActive="active" role="button" class="btn btn-sm btn-outline-primary" title="Doctor"><i class="fa fa-user-md" aria-hidden="true"></i><span class="d-none d-md-inline-block">Doctor</span></a>

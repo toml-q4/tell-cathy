@@ -3,7 +3,7 @@ import { NoteService } from './../note.service';
 import { Component, OnInit } from '@angular/core';
 import { NoteDetails } from 'app/note-details/models/note-details';
 import { ActivatedRoute } from '@angular/router';
-import { EntryType } from 'app/note-details/models/note-entry';
+import { EntryType } from "app/shared/enum.entry-type";
 @Component({
   selector: 'app-note-details',
   templateUrl: './note-details.component.html',

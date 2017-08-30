@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from "app/home/home.component";
 import { AboutComponent } from "app/about/about.component";
 import { OneGateGuard } from "app/one-gate.guard";
+import { NoteSymptomComponent } from "app/note-symptom/note-symptom.component";
 
 const defaultRoute = '/home';
 const appRoutes: Routes = [
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
     {
         path: 'note', component: NoteComponent, children: [
             { path: 'temperature', canActivate: [OneGateGuard], component: NoteTemperatureComponent },
+            { path: 'symptom', canActivate: [OneGateGuard], component: NoteSymptomComponent },
             { path: ':noteId', component: NoteDetailsComponent }
         ]
     },
@@ -40,6 +42,7 @@ export const routableComponents = [
     NoteComponent,
     NoteDetailsComponent,
     NoteTemperatureComponent,
+    NoteSymptomComponent,
     NoteMedicineComponent,
     NoteDoctorComponent,
     PageNotFoundComponent

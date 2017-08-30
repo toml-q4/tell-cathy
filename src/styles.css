@@ -11,8 +11,16 @@ footer {
 }
 
 .separator {
-    height: 5px;
+    height: 10px;
     content: '';
+}
+
+.separator-md {
+    height: 20px;
+}
+
+.separator-lg {
+    height: 30px;
 }
 
 .timestamp {

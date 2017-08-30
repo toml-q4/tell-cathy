@@ -1,9 +1,15 @@
+import { EntryType } from "app/shared/enum.entry-type";
+
 export class NoteTemperatureCreation {
     public amount: number;
-    public unit: string;
     public takenDate: string;
+    private _entryType: EntryType = EntryType.Temperature;
 
-    constructor(){
+    get entryType(): EntryType {
+        return this._entryType;
+    }
+
+    constructor() {
         this.takenDate = new Date().toLocaleString();
     }
 }

@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { AppNavComponent } from './app-nav/app-nav.component';
 import { NoteNavComponent } from './note-nav/note-nav.component';
 import { OneGateGuard } from "app/one-gate.guard";
+import { NoteUnitPipe } from './note-unit.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     routableComponents,
     AppNavComponent,
-    NoteNavComponent
+    NoteNavComponent,
+    NoteUnitPipe
   ],
   imports: [
     NgbModule.forRoot(),

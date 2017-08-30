@@ -1,11 +1,11 @@
 <div class="list-group">
-    <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let entry of noteDetails.entries">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{entry.name}}</h5>
-        <small>{{entry.takenDate | date:'shortTime'}}</small>
-      </div>
-      <p class="mb-1">{{entry.description}}</p>
-      <p class="mb-1">{{entry.rachelSense}}</p>
-      <small>{{entry.takenDate | date:'shortDate'}}</small>
+  <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let entry of noteDetails.entries">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{entry.name}} <span [innerHTML]="entry.entryType | noteUnit"></span></h5>
+      <small>{{entry.takenDate | date:'shortTime'}}</small>
     </div>
+    <p class="mb-1">{{entry.description}}</p>
+    <p class="mb-1">{{entry.rachelSense}}</p>
+    <small>{{entry.takenDate | date:'shortDate'}}</small>
+  </div>
 </div>
