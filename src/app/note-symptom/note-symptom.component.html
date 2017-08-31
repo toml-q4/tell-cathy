@@ -1,3 +1,30 @@
-<p>
-  note-symptom works!
-</p>
+<div class="alert alert-primary" role="alert" *ngIf="lastRecord">
+  Last record: {{lastRecord.name}}
+</div>
+
+<form (ngSubmit)="create()" #symptomForm="ngForm">
+  <div class="form-group">
+    <label for="name">What happened?</label>
+    <input id="name" type="text" class="form-control" [(ngModel)]="model.name" name="name" #name="ngModel" required />
+    <div [hidden]="name.valid || name.pristine" class="small text-danger">
+      <strong>What happened?</strong> is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Tell me more about it</label>
+    <textarea id="description" rows="3" class="form-control" [(ngModel)]="model.description" name="description" #name="ngModel"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="takenDate">Taken Date</label>
+    <input type="text" class="form-control" id="takendate" [(ngModel)]="model.takenDate" name="takenDate" #takenDate="ngModel"
+      required>
+    <div [hidden]="takenDate.valid || takenDate.pristine" class="small text-danger">
+      <strong>Taken Date</strong> is required
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!symptomForm.form.valid">Submit</button>
+  <button type="button" class="btn btn-light" [routerLink]="['/note', noteId]">Cancel</button>
+</form>

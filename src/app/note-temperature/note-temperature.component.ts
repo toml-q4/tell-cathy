@@ -1,10 +1,10 @@
 import { NoteService } from './../note.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { EntryService } from './../entry.service';
 import { NoteTemperatureCreation } from './note-temperature-creation';
 import { Component, OnInit } from '@angular/core';
-import { EntryType } from "app/shared/enum.entry-type";
-import { NoteEntry } from "app/note-details/models/note-entry";
+import { EntryType } from 'app/shared/enum.entry-type';
+import { NoteEntry } from 'app/note-details/models/note-entry';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-note-temperature',
@@ -15,15 +15,12 @@ export class NoteTemperatureComponent implements OnInit {
   model = new NoteTemperatureCreation();
   noteId: string;
   lastRecord: NoteEntry;
-  constructor(private route: ActivatedRoute,
-    private router: Router,
+  constructor(private router: Router,
     private noteService: NoteService,
     private entryService: EntryService) {
   }
 
-
   ngOnInit() {
-    this.model.amount = 37.0;
     this.noteId = this.noteService.note.id;
     this.lastRecord = this.noteService.getLastEntry(EntryType.Temperature);
   }

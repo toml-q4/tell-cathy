@@ -16,6 +16,15 @@ export class EntryService {
       .catch(this.handleError);
   }
 
+  createSymptom(noteId: string, takenDate: string, name: string, description: string) {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    return this.http.post(`${this.backendDomain}/api/symptoms`,
+      { noteId: noteId, takenDate: takenDate, name: name, description: description },
+      options)
+      .catch(this.handleError);
+  }
+
   private handleError(error: Response) {
     let msg = `Unknown error.`;
     if (error.status === 404) {
