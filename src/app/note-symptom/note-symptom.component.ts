@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { EntryService } from 'app/entry.service';
 import { NoteSymptomCreation } from 'app/note-symptom/note-symptom-creation';
 import { Router } from '@angular/router';
-import { NoteService } from "app/note.service";
-import { NoteEntry } from "app/note-details/models/note-entry";
-import { EntryType } from "app/shared/enum.entry-type";
+import { NoteService } from 'app/note.service';
+import { NoteEntry } from 'app/note-details/models/note-entry';
+import { EntryType } from 'app/shared/enum.entry-type';
 
 @Component({
   selector: 'note-symptom',

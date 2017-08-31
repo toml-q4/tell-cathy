@@ -6,10 +6,10 @@ import { NoteComponent } from './note/note.component';
 import { NoteDetailsComponent } from './note-details/note-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HomeComponent } from "app/home/home.component";
-import { AboutComponent } from "app/about/about.component";
-import { OneGateGuard } from "app/one-gate.guard";
-import { NoteSymptomComponent } from "app/note-symptom/note-symptom.component";
+import { HomeComponent } from 'app/home/home.component';
+import { AboutComponent } from 'app/about/about.component';
+import { OneGateGuard } from 'app/one-gate.guard';
+import { NoteSymptomComponent } from 'app/note-symptom/note-symptom.component';
 
 const defaultRoute = '/home';
 const appRoutes: Routes = [
