@@ -1,6 +1,7 @@
-import { EntryType } from "app/shared/enum.entry-type";
+import { EntryType } from 'app/shared/enum.entry-type';
 
 export class NoteEntry {
+    public id: string;
     public name: string;
     public description: string;
     public rachelSense: string;

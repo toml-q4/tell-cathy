@@ -1,5 +1,8 @@
 <div class="list-group">
   <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let entry of noteDetails.entries">
+    <button type="button" class="close" aria-label="Close" (click)="delete(entry)">
+      <span aria-hidden="true">&times;</span>
+    </button>
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{entry.name}} <span [innerHTML]="entry.entryType | noteUnit"></span></h5>
       <small>{{entry.takenDate | date:'shortTime'}}</small>

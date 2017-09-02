@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { NoteDetails } from 'app/note-details/models/note-details';
 import { ActivatedRoute } from '@angular/router';
 import { EntryType } from 'app/shared/enum.entry-type';
+import { EntryService } from 'app/entry.service';
+import { NoteEntry } from 'app/note-details/models/note-entry';
 @Component({
   selector: 'app-note-details',
   templateUrl: './note-details.component.html',
@@ -12,7 +14,7 @@ import { EntryType } from 'app/shared/enum.entry-type';
 export class NoteDetailsComponent implements OnInit {
   noteId: string;
   noteDetails = new NoteDetails();
-  constructor(private activatedRoute: ActivatedRoute, private noteService: NoteService) { }
+  constructor(private activatedRoute: ActivatedRoute, private noteService: NoteService, private entryService: EntryService) { }
 
   ngOnInit() {
     if (!this.noteDetails.id) {
@@ -20,6 +22,12 @@ export class NoteDetailsComponent implements OnInit {
         .map(params => params['noteId'])
         .do(noteId => this.noteId = noteId)
         .subscribe(noteId => this.getNoteById());
+    }
+  }
+
+  delete(entry: NoteEntry) {
+    if (confirm('Are you sure that you want to delete this entry? This action cannot be undone.')) {
+      this.entryService.delete(this.noteId, entry.entryType, entry.id).subscribe(() => this.getNoteById());
     }
   }
 

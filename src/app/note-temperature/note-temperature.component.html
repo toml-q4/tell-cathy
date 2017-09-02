@@ -1,4 +1,4 @@
-<div class="alert alert-primary" role="alert">
+<div class="alert alert-primary" role="alert" *ngIf="lastRecord.name">
   Last record: {{lastRecord.name}} <span [innerHTML]="lastRecord.entryType | noteUnit"></span>
 </div>
 

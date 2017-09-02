@@ -3,8 +3,8 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { NoteDetails } from 'app/note-details/models/note-details';
-import { EntryType } from "app/shared/enum.entry-type";
-import { NoteEntry } from "app/note-details/models/note-entry";
+import { EntryType } from 'app/shared/enum.entry-type';
+import { NoteEntry } from 'app/note-details/models/note-entry';
 @Injectable()
 export class NoteService {
   note: NoteDetails;
@@ -14,12 +14,13 @@ export class NoteService {
   constructor(private http: Http) { }
 
   getLastEntry(type: EntryType) {
-    let result = new NoteEntry();
+    let result: NoteEntry;
     if (this.note) {
       result = this.note.entries.find(function (element) {
         return element.entryType === EntryType.Temperature;
       });
     }
+
     return result;
   }
 

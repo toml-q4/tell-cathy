@@ -23,6 +23,9 @@ export class NoteTemperatureComponent implements OnInit {
   ngOnInit() {
     this.noteId = this.noteService.note.id;
     this.lastRecord = this.noteService.getLastEntry(EntryType.Temperature);
+    if (this.lastRecord === undefined) {
+      this.lastRecord = new NoteEntry();
+    }
   }
   create() {
     this.entryService.createTemperature(this.noteId, this.model.takenDate, this.model.amount)

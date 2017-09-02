@@ -1,3 +1,4 @@
+import './rxjs-extensions';
 import { EntryService } from './entry.service';
 import { NoteService } from './note.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,12 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
-import './rxjs-extensions';
 import { AppComponent } from './app.component';
 import { AppNavComponent } from './app-nav/app-nav.component';
 import { NoteNavComponent } from './note-nav/note-nav.component';
-import { OneGateGuard } from "app/one-gate.guard";
+import { OneGateGuard } from 'app/one-gate.guard';
 import { NoteUnitPipe } from './note-unit.pipe';
+import { TrHttpService } from 'app/tr-http.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { NoteUnitPipe } from './note-unit.pipe';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [NoteService, EntryService, OneGateGuard],
+  providers: [TrHttpService, NoteService, EntryService, OneGateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

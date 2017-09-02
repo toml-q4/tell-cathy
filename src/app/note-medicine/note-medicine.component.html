@@ -1,3 +1,8 @@
-<p>
-  note-medicine works!
-</p>
+<form (ngSubmit)="create()" #symptomForm="ngForm">
+  <div class="form-group">
+    <a [routerLink]="['/note/newmedicine']" class="btn btn-sm btn-primary">Add new Medicine</a>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!symptomForm.form.valid">Submit</button>
+  <button type="button" class="btn btn-light" [routerLink]="['/note', noteId]">Cancel</button>
+</form>

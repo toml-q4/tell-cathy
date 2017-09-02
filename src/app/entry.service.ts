@@ -1,36 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { TrHttpService } from 'app/tr-http.service';
+import { EntryType } from 'app/shared/enum.entry-type';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EntryService {
-  backendDomain = 'http://localhost:59609';
-  constructor(private http: Http) { }
+  constructor(private http: TrHttpService) { }
 
   createTemperature(noteId: string, takenDate: string, amount: number) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
-    return this.http.post(`${this.backendDomain}/api/temperatures`,
-      { noteId: noteId, takenDate: takenDate, value: amount, isFahrenheit: false },
-      options)
-      .catch(this.handleError);
+    return this.http.post(`/notes/${noteId}/temperatures`,
+      { takenDate: takenDate, value: amount, isFahrenheit: false });
   }
 
   createSymptom(noteId: string, takenDate: string, name: string, description: string) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
-    return this.http.post(`${this.backendDomain}/api/symptoms`,
-      { noteId: noteId, takenDate: takenDate, name: name, description: description },
-      options)
-      .catch(this.handleError);
+    return this.http.post(`/notes/${noteId}/symptoms`,
+      { takenDate: takenDate, name: name, description: description });
   }
 
-  private handleError(error: Response) {
-    let msg = `Unknown error.`;
-    if (error.status === 404) {
-      msg = 'Not Found';
+  delete(noteId: string, entryType: EntryType, entryId: string) {
+    if (entryType === EntryType.Symptom) {
+      return this.http.delete(`/notes/${noteId}/symptoms/${entryId}`);
+    }
+    else if (entryType === EntryType.Temperature) {
+      return this.http.delete(`/notes/${noteId}/temperatures/${entryId}`);
     }
 
-    return Observable.throw(msg);
+    return Observable.of(null);
   }
 }
