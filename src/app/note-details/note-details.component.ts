@@ -12,6 +12,7 @@ import { NoteEntry } from 'app/note-details/models/note-entry';
   styleUrls: ['./note-details.component.css']
 })
 export class NoteDetailsComponent implements OnInit {
+  publicUrl: string;
   noteId: string;
   noteDetails = new NoteDetails();
   constructor(private activatedRoute: ActivatedRoute, private noteService: NoteService, private entryService: EntryService) { }
@@ -39,7 +40,6 @@ export class NoteDetailsComponent implements OnInit {
           element.description = 'Body Temperature';
         }
       });
-
       this.noteDetails = noteDetails;
     },
       errorMessage => {

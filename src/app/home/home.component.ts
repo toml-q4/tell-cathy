@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NoteService } from "app/note.service";
-import { NoteDetails } from "app/note-details/models/note-details";
-import { Router } from "@angular/router";
+import { NoteService } from 'app/note.service';
+import { NoteDetails } from 'app/note-details/models/note-details';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   create() {
-    this.noteService.create(this.email)
+    this.noteService.create()
       .subscribe(noteDetails => {
         this.router.navigate(['/note', noteDetails.id]);
       });

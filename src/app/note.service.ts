@@ -17,7 +17,7 @@ export class NoteService {
     let result: NoteEntry;
     if (this.note) {
       result = this.note.entries.find(function (element) {
-        return element.entryType === EntryType.Temperature;
+        return element.entryType === type;
       });
     }
 
@@ -39,10 +39,10 @@ export class NoteService {
     return this.note;
   }
 
-  create(email: string) {
+  create() {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this.http.post(`${this.backendDomain}/api/notes`, { email: email }, options)
+    return this.http.post(`${this.backendDomain}/api/notes`, {}, options)
       .map((response: Response) => <NoteDetails>response.json())
       .catch(this.handleError);
   }

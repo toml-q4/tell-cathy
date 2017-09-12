@@ -11,6 +11,7 @@ import { AboutComponent } from 'app/about/about.component';
 import { OneGateGuard } from 'app/one-gate.guard';
 import { NoteSymptomComponent } from 'app/note-symptom/note-symptom.component';
 import { NoteNewMedicineComponent } from 'app/note-new-medicine/note-new-medicine.component';
+import { NoteMakePrivateComponent } from 'app/note-make-private/note-make-private.component';
 
 const defaultRoute = '/home';
 const appRoutes: Routes = [
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
     { path: 'about', component: AboutComponent },
     {
         path: 'note', component: NoteComponent, children: [
+            { path: 'makePrivate', canActivate: [OneGateGuard], component: NoteMakePrivateComponent },
             { path: 'temperature', canActivate: [OneGateGuard], component: NoteTemperatureComponent },
             { path: 'symptom', canActivate: [OneGateGuard], component: NoteSymptomComponent },
             { path: 'medicine', canActivate: [OneGateGuard], component: NoteMedicineComponent },
@@ -44,6 +46,7 @@ export const routableComponents = [
     AboutComponent,
     NoteComponent,
     NoteDetailsComponent,
+    NoteMakePrivateComponent,
     NoteTemperatureComponent,
     NoteSymptomComponent,
     NoteMedicineComponent,
