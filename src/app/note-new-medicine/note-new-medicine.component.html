@@ -1,3 +1,23 @@
-<p>
-  note-new-medicine works!
-</p>
+<form (ngSubmit)="create()" #temperatureForm="ngForm">
+  <div class="form-group">
+    <label for="medicine-name">Name</label>
+    <input type="text" class="form-control" id="medicine-name" [(ngModel)]="model.medicineName" name="medicineName" #medicineName="ngModel"
+      required>
+    <div [hidden]="medicineName.valid || medicineName.pristine" class="small text-danger">
+      <strong>Name</strong> is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="medicine-dosage">Dosage</label>
+    <input type="text" class="form-control" id="medicine-dosage" [(ngModel)]="model.medicineDosage" name="medicineDosage" #medicineDosage="ngModel"
+      required>
+    <div [hidden]="medicineDosage.valid || medicineDosage.pristine" class="small text-danger">
+      <strong>Dosage</strong> is required
+    </div>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary" [disabled]="!temperatureForm.form.valid">Submit</button>
+  <button type="button" class="btn btn-light" [routerLink]="['/note', noteId]">Cancel</button>
+</form>

@@ -14,6 +14,7 @@ export class NoteMedicineComponent implements OnInit {
 
   ngOnInit() {
     this.noteId = this.noteService.note.id;
+
   }
   create() { }
 }

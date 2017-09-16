@@ -7,6 +7,10 @@ import { Observable } from 'rxjs/Observable';
 export class EntryService {
   constructor(private http: TrHttpService) { }
 
+  createMedicine(noteId: string, medicineName: string, medicineDosage: string) {
+    return this.http.post(`/notes/${noteId}/medicines`, { name: medicineName, dosage: medicineDosage });
+  }
+
   createTemperature(noteId: string, takenDate: string, amount: number) {
     return this.http.post(`/notes/${noteId}/temperatures`,
       { takenDate: takenDate, value: amount, isFahrenheit: false });
